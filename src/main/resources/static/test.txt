@@ -1,0 +1,6 @@
+1.admin123 - $2a$10$7bhsE7u6c7QvWVpKkULgE.5pKn0UnTgDaJgL6UWx1R0X6zucSw8qC - Admin User - admin@ecommerce.com
+2.seller123 - $2a$10$wJ2j.9hJ0wOfzHs02u7P9eO3HtnVwT5/WTXCuOdud7I4P4r1aIFuS -alice@example.com - Alice Johnson
+3.seller1212 - $2a$10$R3E0STsxFV2IQHAUCli5nuo51j3QcLQlYcm0jJ/mnpBe6XIFcNw9K - seller@stylehub.com - StyleHub Seller
+
+
+https://.postman.co/workspace/My-Workspace~f55d2832-25cb-4da0-8b3e-0824016cb368/collection/38833937-87d281b9-eae3-41b1-b2b3-b43ad3771339?action=share&creator=38833937
