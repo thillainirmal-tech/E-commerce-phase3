@@ -1,0 +1,467 @@
+{
+	"info": {
+		"_postman_id": "87d281b9-eae3-41b1-b2b3-b43ad3771339",
+		"name": "ecommerce_api_testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38833937"
+	},
+	"item": [
+		{
+			"name": "get seller",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "admin123",
+						"username": "admin@ecommerce.com"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/admin/seller"
+			},
+			"response": []
+		},
+		{
+			"name": "create seller",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "admin123",
+						"username": "admin@ecommerce.com"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"hap\",\r\n    \"email\": \"hap@gmail.com\",\r\n    \"companyId\": 1,\r\n    \"password\": \"hap123\"\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/admin/seller"
+			},
+			"response": []
+		},
+		{
+			"name": "create company",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "admin123",
+						"username": "admin@ecommerce.com"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n    \"name\": \"dailycart\"\r\n    }\r\n]"
+				},
+				"url": "http://localhost:8080/api/admin/company"
+			},
+			"response": []
+		},
+		{
+			"name": "delete company",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "admin123",
+						"username": "admin@ecommerce.com"
+					}
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n    \"name\": \"dailycart\"\r\n    }\r\n]"
+				},
+				"url": "http://localhost:8080/api/admin/seller/5"
+			},
+			"response": []
+		},
+		{
+			"name": "search product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "admin123",
+						"username": "admin@ecommerce.com"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n    \"name\": \"dailycart\"\r\n    }\r\n]"
+				},
+				"url": {
+					"raw": "http://localhost:8080/public/products?keyword=Laptop&pageSize=2&pageNo=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"public",
+						"products"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "Laptop"
+						},
+						{
+							"key": "pageSize",
+							"value": "2"
+						},
+						{
+							"key": "pageNo",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchproductByCustomer",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "seller123",
+						"username": "alice@example.com"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": 1,\r\n  \"quantity\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/customer/order-item"
+			},
+			"response": []
+		},
+		{
+			"name": "createorder",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "seller123",
+						"username": "alice@example.com"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": 1,\r\n  \"quantity\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/customer/order/3/submit"
+			},
+			"response": []
+		},
+		{
+			"name": "searchproductByCustomer",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "seller123",
+						"username": "alice@example.com"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/customer/product/1"
+			},
+			"response": []
+		},
+		{
+			"name": "AddToCart",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "seller123",
+						"username": "alice@example.com"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": 1,\r\n  \"quantity\": 2\r\n}"
+				},
+				"url": "http://localhost:8080/api/customer/order-item"
+			},
+			"response": []
+		},
+		{
+			"name": "findproductByseller",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "seller1212",
+						"username": "seller@stylehub.com"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": 1,\r\n  \"quantity\": 2\r\n}"
+				},
+				"url": "http://localhost:8080/api/seller/product"
+			},
+			"response": []
+		},
+		{
+			"name": "createProductBySeller",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "seller1212",
+						"username": "seller@stylehub.com"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 6,\r\n  \"name\": \"ipad\",\r\n  \"description\": \"quality for watching\",\r\n  \"price\": 35000.0,\r\n  \"stock\": 2,\r\n  \"active\": true,\r\n  \"imageUrl\": \"string\",\r\n  \"categoryId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/seller/product"
+			},
+			"response": []
+		},
+		{
+			"name": "updateProductBySeller",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "seller1212",
+						"username": "seller@stylehub.com"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 2,\r\n        \"name\": \"Cotton T-Shirt\",\r\n        \"description\": \"Men cotton T-shirt, size M\",\r\n        \"price\": 599.0,\r\n        \"stock\": 200,\r\n        \"active\": true,\r\n        \"imageUrl\": \"tmp/image/tshirt.jpg\",\r\n        \"categoryId\": 2\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/seller/product/2"
+			},
+			"response": []
+		},
+		{
+			"name": "createProductImage",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "seller1212",
+						"username": "seller@stylehub.com"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "image/jpeg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/shanm/Downloads/laptop.jpg"
+						}
+					]
+				},
+				"url": "http://localhost:8080/api/seller/product/image"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProductBySeller",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "seller1212",
+						"username": "seller@stylehub.com"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/seller/product/3"
+			},
+			"response": []
+		},
+		{
+			"name": "ProductUploadBulk",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "seller1212",
+						"username": "seller@stylehub.com"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/shanm/Downloads/product.csv"
+						}
+					]
+				},
+				"url": "http://localhost:8080/api/seller/product/bulk"
+			},
+			"response": []
+		},
+		{
+			"name": "signupByPublic",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"rahul\",\r\n    \"email\" : \"rahul@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/public/signup\n"
+			},
+			"response": []
+		},
+		{
+			"name": "resetPassword",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"joe123\",\r\n    \"email\": \"joe@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/public/resetpassword/acd41216-199c-4906-baef-71eb58bb5846"
+			},
+			"response": []
+		}
+	]
+}
