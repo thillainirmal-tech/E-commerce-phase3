@@ -1,5 +1,8 @@
 # E-commerce Phase 3
 
+[![CI](https://github.com/thillainirmal-tech/E-commerce-phase3/actions/workflows/ci.yml/badge.svg)](https://github.com/thillainirmal-tech/E-commerce-phase3/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/thillainirmal-tech/E-commerce-phase3)](LICENSE)
+
 A Java-based E-commerce application with Redis integration.
 
 ## Overview
